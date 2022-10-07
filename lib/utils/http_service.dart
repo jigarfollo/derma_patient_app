@@ -15,18 +15,18 @@ import 'package:follo_patient_app/utils/navigator.dart';
 import 'package:follo_patient_app/utils/service_locator.dart';
 import 'package:http/http.dart' as http;
 
-String clinicId = "b8007c4fd4e04eba94f2d8abdee403c4"; // Stagging
-// String clinicId = "d9076aa43c2147b8a0b63b011c3f2b6b"; // Production
+// String clinicId = "b8007c4fd4e04eba94f2d8abdee403c4"; // Stagging
+String clinicId = "d9076aa43c2147b8a0b63b011c3f2b6b"; // Production
 
 /// TODO: Change the clinicId before deployment
 
 class HttpService {
-  // String prodUrl = "https://prod-patient-app-platform.follocare.com"; // production url is changed
-  String devUrl = "https://patient-app-platform.follocare.com";
+  String prodUrl = "https://prod-patient-app-platform.follocare.com"; // production url is changed
+  // String devUrl = "https://patient-app-platform.follocare.com";
 
   // ******* Chat Module Api call ********
-  String chatDevUrl = "https://dev-platform.follocare.com";
-  // String chatProdUrl = "https://prod-platform.follocare.com";
+  // String chatDevUrl = "https://dev-platform.follocare.com";
+  String chatProdUrl = "https://prod-platform.follocare.com";
 
   String currentUrl;
   String currentChatUrl;
@@ -34,8 +34,8 @@ class HttpService {
   GlobalData globalData = locator<GlobalData>();
 
   HttpService() {
-    currentUrl = devUrl;
-    currentChatUrl = chatDevUrl;
+    currentUrl = prodUrl;
+    currentChatUrl = chatProdUrl;
   }
   String _userId;
   dynamic _responseChecker(http.Response response) {
