@@ -14,6 +14,7 @@ class Preference {
   static const String isBiometric = "isBiometric";
   static const String shouldRouteFromNotification = "shouldRouteFromNotification";
   static const String wasAppKilled = "wasAppKilled";
+  static const String selectedPatientProfileId = "selectedPatientProfileId";
   // ------------------ SINGLETON ----------------------- //
   static final Preference _preference = Preference._internal();
 
@@ -93,6 +94,14 @@ class Preference {
 
   Future<bool> setBool(String key, bool value) {
     return _pref.setBool(key, value);
+  }
+
+  setSelectedPatientProfileId(String value) {
+    _pref.setString(selectedPatientProfileId, value);
+  }
+
+  String getSelectedPatientProfileId() {
+    return _pref.getString(selectedPatientProfileId) ?? "";
   }
 
   bool getWasAppKilled() {

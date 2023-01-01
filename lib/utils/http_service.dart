@@ -1,6 +1,8 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:developer' as developer;
+import 'dart:developer';
+import 'dart:ffi';
+import 'dart:io';
 
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +10,14 @@ import 'package:follo_patient_app/modules/auth/login_screen.dart';
 import 'package:follo_patient_app/protobuf_packets/follo.pbserver.dart';
 import 'package:follo_patient_app/shared_preference/preference.dart';
 import 'package:follo_patient_app/utils/custom_exceptions.dart';
-
 import 'package:follo_patient_app/utils/global_data.dart';
 import 'package:follo_patient_app/utils/navigation_service.dart';
 import 'package:follo_patient_app/utils/navigator.dart';
 import 'package:follo_patient_app/utils/service_locator.dart';
 import 'package:http/http.dart' as http;
 
-String clinicId = "b8007c4fd4e04eba94f2d8abdee403c4"; // Stagging
-// String clinicId = "d9076aa43c2147b8a0b63b011c3f2b6b"; // Production
+String clinicId = "9900a7d4ee00472e8a813aa7c1ac00ae"; // Stagging
+// String clinicId = "925b48d98c1942bca36c1a6bb6cf085a"; // Production
 
 /// TODO: Change the clinicId before deployment
 
@@ -37,7 +38,7 @@ class HttpService {
     currentUrl = devUrl;
     currentChatUrl = chatDevUrl;
   }
-  String _userId;
+
   dynamic _responseChecker(http.Response response) {
     switch (response.statusCode) {
       case 200:
@@ -139,7 +140,6 @@ class HttpService {
   }
 
   removeUserId() {
-    _userId = null;
     NavigationUtilities.pushRoute(
       LoginScreen.route,
     );
@@ -321,6 +321,8 @@ class HttpService {
     @required String role,
     Media profilePicture,
     @required String clinicId,
+    String email,
+    @required String patientProfileId,
   }) async {
     String url = currentUrl + '/users/edit_profile';
     EditProfile obj = EditProfile();
@@ -333,6 +335,7 @@ class HttpService {
     obj.role = role;
     obj.profilePicture = profilePicture;
     obj.clinicId = clinicId;
+    obj.patientProfileId = patientProfileId;
     developer.log(obj.toString());
     http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
     return response;
@@ -387,6 +390,8 @@ class HttpService {
     @required Int64 endTimestamp,
     @required String clinicId,
     @required bool filterByTimestamp,
+    @required String patientProfileId,
+    @required bool filterByPatientProfileId,
   }) async {
     String url = currentUrl + '/analytics/folloupstats';
     FolloUpStats obj = FolloUpStats();
@@ -396,6 +401,8 @@ class HttpService {
     obj.endTimestamp = endTimestamp;
     obj.clinicId = clinicId;
     obj.filterByTimestamp = filterByTimestamp;
+    obj.patientProfileId = patientProfileId;
+    obj.filterByPatientProfileId = filterByPatientProfileId;
     print(obj.toString());
     http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
     return response;
@@ -556,6 +563,7 @@ class HttpService {
     @required String userToken,
     @required String mobileNumber,
     @required String clinicId,
+    @required String patientProfileId,
   }) async {
     String url = currentUrl + '/users/prefill_patient';
     FetchPatient obj = FetchPatient();
@@ -563,6 +571,7 @@ class HttpService {
     obj.userToken = userToken;
     obj.mobileNumber = mobileNumber;
     obj.clinicId = clinicId;
+    obj.patientProfileId = patientProfileId;
     print(obj.toString());
     http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
     return response;
@@ -598,6 +607,143 @@ class HttpService {
     obj.userToken = userToken;
     obj.clinicId = clinicId;
     print(obj.toString());
+    http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
+    return response;
+  }
+
+  createFolloUp({
+    @required String userid,
+    @required String userToken,
+    @required String clinicId,
+    @required String careTeamId,
+    @required String mobileNumber,
+    @required String firstName,
+    @required String lastName,
+    @required int age,
+    @required String gender,
+    List<Media> attachments,
+    @required String patientProfileId,
+  }) async {
+    String url = currentUrl + '/folloup/undiagnosis_follo_up';
+    UndiagnosisCreateFolloUp obj = UndiagnosisCreateFolloUp();
+    obj.userId = userid;
+    obj.userToken = userToken;
+    obj.clinicId = clinicId;
+    obj.careTeamId = careTeamId;
+    obj.mobileNumber = mobileNumber;
+    obj.firstName = firstName;
+    obj.lastName = lastName;
+    obj.age = age;
+    obj.patientProfileId = patientProfileId;
+    obj.gender = gender.toLowerCase();
+    if (attachments != null) {
+      attachments.forEach((element) {
+        obj.attachments.add(element);
+      });
+    }
+
+    developer.log('create follo obj');
+    developer.log(obj.toString());
+    print(obj.toString());
+
+    http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
+    return response;
+  }
+
+  caregiverInfo(
+      {@required String userId, @required String userToken, @required String clinicId, @required String careteamId, @required String caregiverId}) async {
+    String url = currentUrl + '/users/caregiverinfo';
+    CaregiverInfo obj = CaregiverInfo();
+    obj.userId = userId;
+    obj.userToken = userToken;
+    obj.clinicId = clinicId;
+    obj.careTeamId = careteamId;
+    obj.caregiverId = caregiverId;
+    log(obj.toString());
+    http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
+    return response;
+  }
+
+  prefillMultiplePatient({@required String mobileNumber, @required String userid, @required String userToken}) async {
+    String url = currentUrl + '/users/register_prefill_multi_patient';
+    FetchMultiplePatient obj = FetchMultiplePatient();
+    obj.mobileNumber = mobileNumber;
+    obj.userId = userid;
+    obj.userToken = userToken;
+    log(obj.toString());
+    http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
+    return response;
+  }
+
+  prefillPatient({@required BuildContext context, @required String mobileNumber, String userid}) async {
+    String url = currentUrl + '/users/register_prefillpatient';
+    FetchPatient obj = FetchPatient();
+    obj.mobileNumber = mobileNumber;
+    obj.userId = userid ?? '';
+    obj.userToken = '';
+    http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
+    return response;
+  }
+
+  addNewPatient({
+    @required String userid,
+    @required String mobileNumber,
+    @required String firstName,
+    @required String lastName,
+    @required int age,
+    @required String gender,
+    @required String userToken,
+  }) async {
+    String url = currentUrl + '/users/add_patient';
+    AddPatientProfile obj = AddPatientProfile();
+    obj.userId = userid;
+    obj.userToken = userToken;
+    obj.mobileNumber = mobileNumber;
+    obj.firstName = firstName;
+    obj.lastName = lastName;
+    obj.age = age;
+    obj.gender = gender.toLowerCase();
+    log(obj.toString());
+    http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
+    return response;
+  }
+
+  editPatientProfileFollo({
+    @required String userId,
+    @required String userToken,
+    @required String patientProfileId,
+    @required String firstName,
+    @required String lastName,
+    @required String gender,
+    @required int age,
+  }) async {
+    String url = currentUrl + '/users/editpatient';
+    EditPatientProfile obj = EditPatientProfile();
+    obj.userId = userId;
+    obj.userToken = userToken;
+    obj.patientProfileId = patientProfileId;
+    obj.firstName = firstName;
+    obj.lastName = lastName;
+    obj.gender = gender;
+    obj.age = age;
+    print(obj.toString());
+    http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
+    return response;
+  }
+
+  patientList({
+    @required String userId,
+    @required String userToken,
+    @required String mobileNumber,
+    @required String clinicId,
+  }) async {
+    String url = currentUrl + '/users/patientlist';
+    PatientList obj = PatientList();
+    obj.userId = userId;
+    obj.userToken = userToken;
+    obj.mobileNumber = mobileNumber;
+    obj.clinicId = clinicId;
+    log(obj.toString());
     http.Response response = await _postRequest(url: url, body: obj.writeToBuffer());
     return response;
   }

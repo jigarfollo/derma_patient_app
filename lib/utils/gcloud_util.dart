@@ -17,6 +17,8 @@ class GcloudUtil {
 
   getCredentials() async {
     // String data = await rootBundle.loadString('lib/utils/media_service_account.json');
+    // _credentials = auth.ServiceAccountCredentials.fromJson(data);
+    // developer.log(data);
     try {
       // String data = new File('lib/utils/media_service_account.json').readAsStringSync();
       String data = await rootBundle.loadString('lib/utils/media_service_account.json');
@@ -31,6 +33,12 @@ class GcloudUtil {
   }
 
   connect() async {
+    // await getCredentials();
+    // // var credentials = auth.ServiceAccountCredentials.fromJson(_credentials);
+    // var scopes = Storage.SCOPES;
+    // _client = await auth.clientViaServiceAccount(_credentials, scopes);
+
+    // storage = Storage(_client, 'follo-00');
     try {
       await getCredentials();
       // var credentials = auth.ServiceAccountCredentials.fromJson(_credentials);
@@ -47,6 +55,14 @@ class GcloudUtil {
   }
 
   Future<ObjectInfo> uploadFile(String name, dynamic imgBytes) async {
+    //   if (_client != null) {
+    //     await connect();
+    //   }
+    //   var bucket = storage.bucket('media.follocare.com');
+
+    //   final fileType = lookupMimeType(name);
+    //   return await bucket.writeBytes(name, imgBytes, metadata: ObjectMetadata(contentType: fileType));
+    // }
     if (_client == null) {
       await connect();
     }

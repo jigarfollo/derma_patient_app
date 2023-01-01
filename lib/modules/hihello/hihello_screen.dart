@@ -208,10 +208,8 @@ class _HiHelloScreenState extends State<HiHelloScreen> with WidgetsBindingObserv
                           Text(
                             '${Utils.appName}',
                             textAlign: TextAlign.left,
-                            style: TextUtils.semiBoldPoppinsStyle.copyWith(
-                              color: ColorUtils.titleTextColorWhite,
-                              fontSize: getFontSize(16.0),
-                            ),
+                            style: TextUtils.semiBoldPoppinsStyle
+                                .copyWith(color: ColorUtils.titleTextColorWhite, fontSize: getFontSize(16.0), fontWeight: FontWeight.w900),
                           ),
                           Spacer(),
                           EmergencyButton(),

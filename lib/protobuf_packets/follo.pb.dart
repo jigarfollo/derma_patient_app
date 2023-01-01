@@ -1777,6 +1777,7 @@ class Patient extends $pb.GeneratedMessage {
     ..aInt64(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dateOfBirth')
     ..aOM<Media>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'profilePicture', subBuilder: Media.create)
     ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'email')
+    ..aOS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
     ..hasRequiredFields = false
   ;
 
@@ -1793,6 +1794,7 @@ class Patient extends $pb.GeneratedMessage {
     $fixnum.Int64? dateOfBirth,
     Media? profilePicture,
     $core.String? email,
+    $core.String? patientProfileId,
   }) {
     final _result = create();
     if (patientId != null) {
@@ -1827,6 +1829,9 @@ class Patient extends $pb.GeneratedMessage {
     }
     if (email != null) {
       _result.email = email;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
     }
     return _result;
   }
@@ -1945,6 +1950,15 @@ class Patient extends $pb.GeneratedMessage {
   $core.bool hasEmail() => $_has(10);
   @$pb.TagNumber(11)
   void clearEmail() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get patientProfileId => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set patientProfileId($core.String v) { $_setString(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasPatientProfileId() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearPatientProfileId() => clearField(12);
 }
 
 class FetchPatient extends $pb.GeneratedMessage {
@@ -1953,6 +1967,7 @@ class FetchPatient extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userToken')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clinicId')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
     ..hasRequiredFields = false
   ;
 
@@ -1962,6 +1977,7 @@ class FetchPatient extends $pb.GeneratedMessage {
     $core.String? userToken,
     $core.String? mobileNumber,
     $core.String? clinicId,
+    $core.String? patientProfileId,
   }) {
     final _result = create();
     if (userId != null) {
@@ -1975,6 +1991,9 @@ class FetchPatient extends $pb.GeneratedMessage {
     }
     if (clinicId != null) {
       _result.clinicId = clinicId;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
     }
     return _result;
   }
@@ -2034,6 +2053,15 @@ class FetchPatient extends $pb.GeneratedMessage {
   $core.bool hasClinicId() => $_has(3);
   @$pb.TagNumber(4)
   void clearClinicId() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get patientProfileId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set patientProfileId($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasPatientProfileId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPatientProfileId() => clearField(5);
 }
 
 class FetchPatientResponse extends $pb.GeneratedMessage {
@@ -3015,16 +3043,21 @@ class CaregiverSpeciality extends $pb.GeneratedMessage {
 class Language extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Language', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'languageId')
     ..hasRequiredFields = false
   ;
 
   Language._() : super();
   factory Language({
     $core.String? name,
+    $core.String? languageId,
   }) {
     final _result = create();
     if (name != null) {
       _result.name = name;
+    }
+    if (languageId != null) {
+      _result.languageId = languageId;
     }
     return _result;
   }
@@ -3057,6 +3090,15 @@ class Language extends $pb.GeneratedMessage {
   $core.bool hasName() => $_has(0);
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get languageId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set languageId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLanguageId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLanguageId() => clearField(2);
 }
 
 class DoctorInfoResponse extends $pb.GeneratedMessage {
@@ -3342,16 +3384,21 @@ class ClinicInfo extends $pb.GeneratedMessage {
 class Department extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Department', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'departmentId')
     ..hasRequiredFields = false
   ;
 
   Department._() : super();
   factory Department({
     $core.String? name,
+    $core.String? departmentId,
   }) {
     final _result = create();
     if (name != null) {
       _result.name = name;
+    }
+    if (departmentId != null) {
+      _result.departmentId = departmentId;
     }
     return _result;
   }
@@ -3384,6 +3431,15 @@ class Department extends $pb.GeneratedMessage {
   $core.bool hasName() => $_has(0);
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get departmentId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set departmentId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDepartmentId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDepartmentId() => clearField(2);
 }
 
 class ClinicInfoResponse extends $pb.GeneratedMessage {
@@ -4079,6 +4135,8 @@ class FolloUpList extends $pb.GeneratedMessage {
     ..aInt64(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'startTimestamp')
     ..aInt64(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endTimestamp')
     ..aOB(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filterByTimestamp')
+    ..aOB(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filterByPatientProfileId')
+    ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
     ..hasRequiredFields = false
   ;
 
@@ -4092,6 +4150,8 @@ class FolloUpList extends $pb.GeneratedMessage {
     $fixnum.Int64? startTimestamp,
     $fixnum.Int64? endTimestamp,
     $core.bool? filterByTimestamp,
+    $core.bool? filterByPatientProfileId,
+    $core.String? patientProfileId,
   }) {
     final _result = create();
     if (userId != null) {
@@ -4117,6 +4177,12 @@ class FolloUpList extends $pb.GeneratedMessage {
     }
     if (filterByTimestamp != null) {
       _result.filterByTimestamp = filterByTimestamp;
+    }
+    if (filterByPatientProfileId != null) {
+      _result.filterByPatientProfileId = filterByPatientProfileId;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
     }
     return _result;
   }
@@ -4212,6 +4278,24 @@ class FolloUpList extends $pb.GeneratedMessage {
   $core.bool hasFilterByTimestamp() => $_has(7);
   @$pb.TagNumber(8)
   void clearFilterByTimestamp() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.bool get filterByPatientProfileId => $_getBF(8);
+  @$pb.TagNumber(9)
+  set filterByPatientProfileId($core.bool v) { $_setBool(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasFilterByPatientProfileId() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearFilterByPatientProfileId() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get patientProfileId => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set patientProfileId($core.String v) { $_setString(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasPatientProfileId() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearPatientProfileId() => clearField(10);
 }
 
 class FolloData extends $pb.GeneratedMessage {
@@ -4604,6 +4688,8 @@ class FolloUpStats extends $pb.GeneratedMessage {
     ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endTimestamp')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clinicId')
     ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filterByTimestamp')
+    ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filterByPatientProfileId')
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
     ..hasRequiredFields = false
   ;
 
@@ -4615,6 +4701,8 @@ class FolloUpStats extends $pb.GeneratedMessage {
     $fixnum.Int64? endTimestamp,
     $core.String? clinicId,
     $core.bool? filterByTimestamp,
+    $core.bool? filterByPatientProfileId,
+    $core.String? patientProfileId,
   }) {
     final _result = create();
     if (userId != null) {
@@ -4634,6 +4722,12 @@ class FolloUpStats extends $pb.GeneratedMessage {
     }
     if (filterByTimestamp != null) {
       _result.filterByTimestamp = filterByTimestamp;
+    }
+    if (filterByPatientProfileId != null) {
+      _result.filterByPatientProfileId = filterByPatientProfileId;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
     }
     return _result;
   }
@@ -4711,6 +4805,24 @@ class FolloUpStats extends $pb.GeneratedMessage {
   $core.bool hasFilterByTimestamp() => $_has(5);
   @$pb.TagNumber(6)
   void clearFilterByTimestamp() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get filterByPatientProfileId => $_getBF(6);
+  @$pb.TagNumber(7)
+  set filterByPatientProfileId($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasFilterByPatientProfileId() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearFilterByPatientProfileId() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get patientProfileId => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set patientProfileId($core.String v) { $_setString(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasPatientProfileId() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPatientProfileId() => clearField(8);
 }
 
 class StatusCount extends $pb.GeneratedMessage {
@@ -5054,6 +5166,7 @@ class FolloUpStatsResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FolloUpStatsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
     ..pc<StatsByCaregiver>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'statsByCaregiver', $pb.PbFieldType.PM, subBuilder: StatsByCaregiver.create)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
     ..hasRequiredFields = false
   ;
 
@@ -5061,6 +5174,7 @@ class FolloUpStatsResponse extends $pb.GeneratedMessage {
   factory FolloUpStatsResponse({
     $core.String? status,
     $core.Iterable<StatsByCaregiver>? statsByCaregiver,
+    $core.String? patientProfileId,
   }) {
     final _result = create();
     if (status != null) {
@@ -5068,6 +5182,9 @@ class FolloUpStatsResponse extends $pb.GeneratedMessage {
     }
     if (statsByCaregiver != null) {
       _result.statsByCaregiver.addAll(statsByCaregiver);
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
     }
     return _result;
   }
@@ -5103,6 +5220,15 @@ class FolloUpStatsResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.List<StatsByCaregiver> get statsByCaregiver => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.String get patientProfileId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set patientProfileId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPatientProfileId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPatientProfileId() => clearField(3);
 }
 
 class IncomingPatientappMessage extends $pb.GeneratedMessage {
@@ -7393,6 +7519,7 @@ class EditProfile extends $pb.GeneratedMessage {
     ..aOM<Media>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'profilePicture', subBuilder: Media.create)
     ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clinicId')
     ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'email')
+    ..aOS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
     ..hasRequiredFields = false
   ;
 
@@ -7409,6 +7536,7 @@ class EditProfile extends $pb.GeneratedMessage {
     Media? profilePicture,
     $core.String? clinicId,
     $core.String? email,
+    $core.String? patientProfileId,
   }) {
     final _result = create();
     if (userId != null) {
@@ -7443,6 +7571,9 @@ class EditProfile extends $pb.GeneratedMessage {
     }
     if (email != null) {
       _result.email = email;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
     }
     return _result;
   }
@@ -7567,6 +7698,15 @@ class EditProfile extends $pb.GeneratedMessage {
   $core.bool hasEmail() => $_has(10);
   @$pb.TagNumber(11)
   void clearEmail() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get patientProfileId => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set patientProfileId($core.String v) { $_setString(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasPatientProfileId() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearPatientProfileId() => clearField(12);
 }
 
 class EditProfileResponse extends $pb.GeneratedMessage {
@@ -7808,5 +7948,2080 @@ class PatientDeleteResponse extends $pb.GeneratedMessage {
   $core.bool hasUserDeleted() => $_has(1);
   @$pb.TagNumber(2)
   void clearUserDeleted() => clearField(2);
+}
+
+class AddPatientProfile extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AddPatientProfile', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userToken')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstName')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastName')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender')
+    ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'age', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  AddPatientProfile._() : super();
+  factory AddPatientProfile({
+    $core.String? userId,
+    $core.String? userToken,
+    $core.String? mobileNumber,
+    $core.String? firstName,
+    $core.String? lastName,
+    $core.String? gender,
+    $core.int? age,
+  }) {
+    final _result = create();
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (userToken != null) {
+      _result.userToken = userToken;
+    }
+    if (mobileNumber != null) {
+      _result.mobileNumber = mobileNumber;
+    }
+    if (firstName != null) {
+      _result.firstName = firstName;
+    }
+    if (lastName != null) {
+      _result.lastName = lastName;
+    }
+    if (gender != null) {
+      _result.gender = gender;
+    }
+    if (age != null) {
+      _result.age = age;
+    }
+    return _result;
+  }
+  factory AddPatientProfile.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AddPatientProfile.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  AddPatientProfile clone() => AddPatientProfile()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  AddPatientProfile copyWith(void Function(AddPatientProfile) updates) => super.copyWith((message) => updates(message as AddPatientProfile)) as AddPatientProfile; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AddPatientProfile create() => AddPatientProfile._();
+  AddPatientProfile createEmptyInstance() => create();
+  static $pb.PbList<AddPatientProfile> createRepeated() => $pb.PbList<AddPatientProfile>();
+  @$core.pragma('dart2js:noInline')
+  static AddPatientProfile getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AddPatientProfile>(create);
+  static AddPatientProfile? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get userToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userToken($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUserToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserToken() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get mobileNumber => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set mobileNumber($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMobileNumber() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMobileNumber() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get firstName => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set firstName($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasFirstName() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearFirstName() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get lastName => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set lastName($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasLastName() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLastName() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get gender => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set gender($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasGender() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearGender() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.int get age => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set age($core.int v) { $_setSignedInt32(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasAge() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearAge() => clearField(7);
+}
+
+class PatientTuple extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PatientTuple', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstName')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastName')
+    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'age', $pb.PbFieldType.O3)
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender')
+    ..pc<PatientHistory>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'history', $pb.PbFieldType.PM, subBuilder: PatientHistory.create)
+    ..hasRequiredFields = false
+  ;
+
+  PatientTuple._() : super();
+  factory PatientTuple({
+    $core.String? patientId,
+    $core.String? patientProfileId,
+    $core.String? mobileNumber,
+    $core.String? firstName,
+    $core.String? lastName,
+    $core.int? age,
+    $core.String? gender,
+    $core.Iterable<PatientHistory>? history,
+  }) {
+    final _result = create();
+    if (patientId != null) {
+      _result.patientId = patientId;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
+    }
+    if (mobileNumber != null) {
+      _result.mobileNumber = mobileNumber;
+    }
+    if (firstName != null) {
+      _result.firstName = firstName;
+    }
+    if (lastName != null) {
+      _result.lastName = lastName;
+    }
+    if (age != null) {
+      _result.age = age;
+    }
+    if (gender != null) {
+      _result.gender = gender;
+    }
+    if (history != null) {
+      _result.history.addAll(history);
+    }
+    return _result;
+  }
+  factory PatientTuple.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PatientTuple.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PatientTuple clone() => PatientTuple()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PatientTuple copyWith(void Function(PatientTuple) updates) => super.copyWith((message) => updates(message as PatientTuple)) as PatientTuple; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static PatientTuple create() => PatientTuple._();
+  PatientTuple createEmptyInstance() => create();
+  static $pb.PbList<PatientTuple> createRepeated() => $pb.PbList<PatientTuple>();
+  @$core.pragma('dart2js:noInline')
+  static PatientTuple getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PatientTuple>(create);
+  static PatientTuple? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get patientId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set patientId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPatientId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPatientId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get patientProfileId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set patientProfileId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPatientProfileId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPatientProfileId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get mobileNumber => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set mobileNumber($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMobileNumber() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMobileNumber() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get firstName => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set firstName($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasFirstName() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearFirstName() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get lastName => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set lastName($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasLastName() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLastName() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get age => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set age($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasAge() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAge() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get gender => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set gender($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasGender() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearGender() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.List<PatientHistory> get history => $_getList(7);
+}
+
+class AddPatientProfileResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AddPatientProfileResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileAdded')
+    ..aOM<PatientTuple>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patient', subBuilder: PatientTuple.create)
+    ..hasRequiredFields = false
+  ;
+
+  AddPatientProfileResponse._() : super();
+  factory AddPatientProfileResponse({
+    $core.String? status,
+    $core.bool? patientProfileAdded,
+    PatientTuple? patient,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    if (patientProfileAdded != null) {
+      _result.patientProfileAdded = patientProfileAdded;
+    }
+    if (patient != null) {
+      _result.patient = patient;
+    }
+    return _result;
+  }
+  factory AddPatientProfileResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AddPatientProfileResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  AddPatientProfileResponse clone() => AddPatientProfileResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  AddPatientProfileResponse copyWith(void Function(AddPatientProfileResponse) updates) => super.copyWith((message) => updates(message as AddPatientProfileResponse)) as AddPatientProfileResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AddPatientProfileResponse create() => AddPatientProfileResponse._();
+  AddPatientProfileResponse createEmptyInstance() => create();
+  static $pb.PbList<AddPatientProfileResponse> createRepeated() => $pb.PbList<AddPatientProfileResponse>();
+  @$core.pragma('dart2js:noInline')
+  static AddPatientProfileResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AddPatientProfileResponse>(create);
+  static AddPatientProfileResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get status => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set status($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get patientProfileAdded => $_getBF(1);
+  @$pb.TagNumber(2)
+  set patientProfileAdded($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPatientProfileAdded() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPatientProfileAdded() => clearField(2);
+
+  @$pb.TagNumber(3)
+  PatientTuple get patient => $_getN(2);
+  @$pb.TagNumber(3)
+  set patient(PatientTuple v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPatient() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPatient() => clearField(3);
+  @$pb.TagNumber(3)
+  PatientTuple ensurePatient() => $_ensure(2);
+}
+
+class MultiplePatient extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MultiplePatient', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstName')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastName')
+    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'age', $pb.PbFieldType.O3)
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender')
+    ..hasRequiredFields = false
+  ;
+
+  MultiplePatient._() : super();
+  factory MultiplePatient({
+    $core.String? patientId,
+    $core.String? patientProfileId,
+    $core.String? mobileNumber,
+    $core.String? firstName,
+    $core.String? lastName,
+    $core.int? age,
+    $core.String? gender,
+  }) {
+    final _result = create();
+    if (patientId != null) {
+      _result.patientId = patientId;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
+    }
+    if (mobileNumber != null) {
+      _result.mobileNumber = mobileNumber;
+    }
+    if (firstName != null) {
+      _result.firstName = firstName;
+    }
+    if (lastName != null) {
+      _result.lastName = lastName;
+    }
+    if (age != null) {
+      _result.age = age;
+    }
+    if (gender != null) {
+      _result.gender = gender;
+    }
+    return _result;
+  }
+  factory MultiplePatient.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MultiplePatient.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  MultiplePatient clone() => MultiplePatient()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  MultiplePatient copyWith(void Function(MultiplePatient) updates) => super.copyWith((message) => updates(message as MultiplePatient)) as MultiplePatient; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MultiplePatient create() => MultiplePatient._();
+  MultiplePatient createEmptyInstance() => create();
+  static $pb.PbList<MultiplePatient> createRepeated() => $pb.PbList<MultiplePatient>();
+  @$core.pragma('dart2js:noInline')
+  static MultiplePatient getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MultiplePatient>(create);
+  static MultiplePatient? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get patientId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set patientId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPatientId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPatientId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get patientProfileId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set patientProfileId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPatientProfileId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPatientProfileId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get mobileNumber => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set mobileNumber($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMobileNumber() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMobileNumber() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get firstName => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set firstName($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasFirstName() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearFirstName() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get lastName => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set lastName($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasLastName() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLastName() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get age => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set age($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasAge() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAge() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get gender => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set gender($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasGender() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearGender() => clearField(7);
+}
+
+class FetchMultiplePatient extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FetchMultiplePatient', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userToken')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
+    ..hasRequiredFields = false
+  ;
+
+  FetchMultiplePatient._() : super();
+  factory FetchMultiplePatient({
+    $core.String? userId,
+    $core.String? userToken,
+    $core.String? mobileNumber,
+  }) {
+    final _result = create();
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (userToken != null) {
+      _result.userToken = userToken;
+    }
+    if (mobileNumber != null) {
+      _result.mobileNumber = mobileNumber;
+    }
+    return _result;
+  }
+  factory FetchMultiplePatient.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FetchMultiplePatient.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FetchMultiplePatient clone() => FetchMultiplePatient()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FetchMultiplePatient copyWith(void Function(FetchMultiplePatient) updates) => super.copyWith((message) => updates(message as FetchMultiplePatient)) as FetchMultiplePatient; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static FetchMultiplePatient create() => FetchMultiplePatient._();
+  FetchMultiplePatient createEmptyInstance() => create();
+  static $pb.PbList<FetchMultiplePatient> createRepeated() => $pb.PbList<FetchMultiplePatient>();
+  @$core.pragma('dart2js:noInline')
+  static FetchMultiplePatient getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FetchMultiplePatient>(create);
+  static FetchMultiplePatient? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get userToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userToken($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUserToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserToken() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get mobileNumber => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set mobileNumber($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMobileNumber() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMobileNumber() => clearField(3);
+}
+
+class FetchMultiplePatientResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FetchMultiplePatientResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..pc<MultiplePatient>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientdata', $pb.PbFieldType.PM, subBuilder: MultiplePatient.create)
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientExists')
+    ..hasRequiredFields = false
+  ;
+
+  FetchMultiplePatientResponse._() : super();
+  factory FetchMultiplePatientResponse({
+    $core.String? status,
+    $core.Iterable<MultiplePatient>? patientdata,
+    $core.bool? patientExists,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    if (patientdata != null) {
+      _result.patientdata.addAll(patientdata);
+    }
+    if (patientExists != null) {
+      _result.patientExists = patientExists;
+    }
+    return _result;
+  }
+  factory FetchMultiplePatientResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FetchMultiplePatientResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FetchMultiplePatientResponse clone() => FetchMultiplePatientResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FetchMultiplePatientResponse copyWith(void Function(FetchMultiplePatientResponse) updates) => super.copyWith((message) => updates(message as FetchMultiplePatientResponse)) as FetchMultiplePatientResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static FetchMultiplePatientResponse create() => FetchMultiplePatientResponse._();
+  FetchMultiplePatientResponse createEmptyInstance() => create();
+  static $pb.PbList<FetchMultiplePatientResponse> createRepeated() => $pb.PbList<FetchMultiplePatientResponse>();
+  @$core.pragma('dart2js:noInline')
+  static FetchMultiplePatientResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FetchMultiplePatientResponse>(create);
+  static FetchMultiplePatientResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get status => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set status($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<MultiplePatient> get patientdata => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.bool get patientExists => $_getBF(2);
+  @$pb.TagNumber(3)
+  set patientExists($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPatientExists() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPatientExists() => clearField(3);
+}
+
+class Answer extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Answer', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'answer')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'summary')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alert')
+    ..hasRequiredFields = false
+  ;
+
+  Answer._() : super();
+  factory Answer({
+    $core.String? answer,
+    $core.String? summary,
+    $core.String? alert,
+  }) {
+    final _result = create();
+    if (answer != null) {
+      _result.answer = answer;
+    }
+    if (summary != null) {
+      _result.summary = summary;
+    }
+    if (alert != null) {
+      _result.alert = alert;
+    }
+    return _result;
+  }
+  factory Answer.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Answer.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Answer clone() => Answer()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Answer copyWith(void Function(Answer) updates) => super.copyWith((message) => updates(message as Answer)) as Answer; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Answer create() => Answer._();
+  Answer createEmptyInstance() => create();
+  static $pb.PbList<Answer> createRepeated() => $pb.PbList<Answer>();
+  @$core.pragma('dart2js:noInline')
+  static Answer getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Answer>(create);
+  static Answer? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get answer => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set answer($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasAnswer() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAnswer() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get summary => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set summary($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSummary() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSummary() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get alert => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set alert($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasAlert() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAlert() => clearField(3);
+}
+
+class NewQuestion extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NewQuestion', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'questionType')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'question')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'answerType')
+    ..pc<Answer>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'answers', $pb.PbFieldType.PM, subBuilder: Answer.create)
+    ..hasRequiredFields = false
+  ;
+
+  NewQuestion._() : super();
+  factory NewQuestion({
+    $core.String? questionType,
+    $core.String? question,
+    $core.String? answerType,
+    $core.Iterable<Answer>? answers,
+  }) {
+    final _result = create();
+    if (questionType != null) {
+      _result.questionType = questionType;
+    }
+    if (question != null) {
+      _result.question = question;
+    }
+    if (answerType != null) {
+      _result.answerType = answerType;
+    }
+    if (answers != null) {
+      _result.answers.addAll(answers);
+    }
+    return _result;
+  }
+  factory NewQuestion.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory NewQuestion.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  NewQuestion clone() => NewQuestion()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  NewQuestion copyWith(void Function(NewQuestion) updates) => super.copyWith((message) => updates(message as NewQuestion)) as NewQuestion; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static NewQuestion create() => NewQuestion._();
+  NewQuestion createEmptyInstance() => create();
+  static $pb.PbList<NewQuestion> createRepeated() => $pb.PbList<NewQuestion>();
+  @$core.pragma('dart2js:noInline')
+  static NewQuestion getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NewQuestion>(create);
+  static NewQuestion? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get questionType => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set questionType($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasQuestionType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearQuestionType() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get question => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set question($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasQuestion() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearQuestion() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get answerType => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set answerType($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasAnswerType() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAnswerType() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<Answer> get answers => $_getList(3);
+}
+
+class Comorbidity extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Comorbidity', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'comorbidityId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..hasRequiredFields = false
+  ;
+
+  Comorbidity._() : super();
+  factory Comorbidity({
+    $core.String? comorbidityId,
+    $core.String? name,
+  }) {
+    final _result = create();
+    if (comorbidityId != null) {
+      _result.comorbidityId = comorbidityId;
+    }
+    if (name != null) {
+      _result.name = name;
+    }
+    return _result;
+  }
+  factory Comorbidity.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Comorbidity.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Comorbidity clone() => Comorbidity()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Comorbidity copyWith(void Function(Comorbidity) updates) => super.copyWith((message) => updates(message as Comorbidity)) as Comorbidity; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Comorbidity create() => Comorbidity._();
+  Comorbidity createEmptyInstance() => create();
+  static $pb.PbList<Comorbidity> createRepeated() => $pb.PbList<Comorbidity>();
+  @$core.pragma('dart2js:noInline')
+  static Comorbidity getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Comorbidity>(create);
+  static Comorbidity? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get comorbidityId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set comorbidityId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasComorbidityId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearComorbidityId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set name($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
+}
+
+class UndiagnosisCreateFolloUp extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UndiagnosisCreateFolloUp', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userToken')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clinicId')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'careTeamId')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstName')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastName')
+    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'age', $pb.PbFieldType.O3)
+    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender')
+    ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'diseaseId')
+    ..aInt64(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'folloUpStartTimestamp')
+    ..aOB(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'recurring')
+    ..a<$core.int>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfDays', $pb.PbFieldType.O3)
+    ..a<$core.int>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeatFrequency', $pb.PbFieldType.O3)
+    ..a<$core.int>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dailyFrequency', $pb.PbFieldType.O3)
+    ..pc<Comorbidity>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'comorbidities', $pb.PbFieldType.PM, subBuilder: Comorbidity.create)
+    ..pc<NewQuestion>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'additionalQuestions', $pb.PbFieldType.PM, subBuilder: NewQuestion.create)
+    ..aOB(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'containsLabTests')
+    ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notes')
+    ..pc<Media>(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'attachments', $pb.PbFieldType.PM, subBuilder: Media.create)
+    ..aOB(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'selectOneFollo')
+    ..aOB(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scheduleAppointment')
+    ..aInt64(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'appointmentDate')
+    ..aInt64(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'secondFolloUpStartTimestamp')
+    ..aOS(25, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'preferredCommunicationLanguage')
+    ..aOS(26, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
+    ..hasRequiredFields = false
+  ;
+
+  UndiagnosisCreateFolloUp._() : super();
+  factory UndiagnosisCreateFolloUp({
+    $core.String? userToken,
+    $core.String? userId,
+    $core.String? clinicId,
+    $core.String? careTeamId,
+    $core.String? mobileNumber,
+    $core.String? firstName,
+    $core.String? lastName,
+    $core.int? age,
+    $core.String? gender,
+    $core.String? diseaseId,
+    $fixnum.Int64? folloUpStartTimestamp,
+    $core.bool? recurring,
+    $core.int? numberOfDays,
+    $core.int? repeatFrequency,
+    $core.int? dailyFrequency,
+    $core.Iterable<Comorbidity>? comorbidities,
+    $core.Iterable<NewQuestion>? additionalQuestions,
+    $core.bool? containsLabTests,
+    $core.String? notes,
+    $core.Iterable<Media>? attachments,
+    $core.bool? selectOneFollo,
+    $core.bool? scheduleAppointment,
+    $fixnum.Int64? appointmentDate,
+    $fixnum.Int64? secondFolloUpStartTimestamp,
+    $core.String? preferredCommunicationLanguage,
+    $core.String? patientProfileId,
+  }) {
+    final _result = create();
+    if (userToken != null) {
+      _result.userToken = userToken;
+    }
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (clinicId != null) {
+      _result.clinicId = clinicId;
+    }
+    if (careTeamId != null) {
+      _result.careTeamId = careTeamId;
+    }
+    if (mobileNumber != null) {
+      _result.mobileNumber = mobileNumber;
+    }
+    if (firstName != null) {
+      _result.firstName = firstName;
+    }
+    if (lastName != null) {
+      _result.lastName = lastName;
+    }
+    if (age != null) {
+      _result.age = age;
+    }
+    if (gender != null) {
+      _result.gender = gender;
+    }
+    if (diseaseId != null) {
+      _result.diseaseId = diseaseId;
+    }
+    if (folloUpStartTimestamp != null) {
+      _result.folloUpStartTimestamp = folloUpStartTimestamp;
+    }
+    if (recurring != null) {
+      _result.recurring = recurring;
+    }
+    if (numberOfDays != null) {
+      _result.numberOfDays = numberOfDays;
+    }
+    if (repeatFrequency != null) {
+      _result.repeatFrequency = repeatFrequency;
+    }
+    if (dailyFrequency != null) {
+      _result.dailyFrequency = dailyFrequency;
+    }
+    if (comorbidities != null) {
+      _result.comorbidities.addAll(comorbidities);
+    }
+    if (additionalQuestions != null) {
+      _result.additionalQuestions.addAll(additionalQuestions);
+    }
+    if (containsLabTests != null) {
+      _result.containsLabTests = containsLabTests;
+    }
+    if (notes != null) {
+      _result.notes = notes;
+    }
+    if (attachments != null) {
+      _result.attachments.addAll(attachments);
+    }
+    if (selectOneFollo != null) {
+      _result.selectOneFollo = selectOneFollo;
+    }
+    if (scheduleAppointment != null) {
+      _result.scheduleAppointment = scheduleAppointment;
+    }
+    if (appointmentDate != null) {
+      _result.appointmentDate = appointmentDate;
+    }
+    if (secondFolloUpStartTimestamp != null) {
+      _result.secondFolloUpStartTimestamp = secondFolloUpStartTimestamp;
+    }
+    if (preferredCommunicationLanguage != null) {
+      _result.preferredCommunicationLanguage = preferredCommunicationLanguage;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
+    }
+    return _result;
+  }
+  factory UndiagnosisCreateFolloUp.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UndiagnosisCreateFolloUp.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UndiagnosisCreateFolloUp clone() => UndiagnosisCreateFolloUp()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UndiagnosisCreateFolloUp copyWith(void Function(UndiagnosisCreateFolloUp) updates) => super.copyWith((message) => updates(message as UndiagnosisCreateFolloUp)) as UndiagnosisCreateFolloUp; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UndiagnosisCreateFolloUp create() => UndiagnosisCreateFolloUp._();
+  UndiagnosisCreateFolloUp createEmptyInstance() => create();
+  static $pb.PbList<UndiagnosisCreateFolloUp> createRepeated() => $pb.PbList<UndiagnosisCreateFolloUp>();
+  @$core.pragma('dart2js:noInline')
+  static UndiagnosisCreateFolloUp getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UndiagnosisCreateFolloUp>(create);
+  static UndiagnosisCreateFolloUp? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get userToken => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userToken($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUserToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserToken() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get userId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUserId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get clinicId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set clinicId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasClinicId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearClinicId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get careTeamId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set careTeamId($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCareTeamId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCareTeamId() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get mobileNumber => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set mobileNumber($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMobileNumber() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMobileNumber() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get firstName => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set firstName($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasFirstName() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearFirstName() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get lastName => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set lastName($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasLastName() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearLastName() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.int get age => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set age($core.int v) { $_setSignedInt32(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasAge() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearAge() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get gender => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set gender($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasGender() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearGender() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get diseaseId => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set diseaseId($core.String v) { $_setString(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasDiseaseId() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearDiseaseId() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $fixnum.Int64 get folloUpStartTimestamp => $_getI64(10);
+  @$pb.TagNumber(11)
+  set folloUpStartTimestamp($fixnum.Int64 v) { $_setInt64(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasFolloUpStartTimestamp() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearFolloUpStartTimestamp() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.bool get recurring => $_getBF(11);
+  @$pb.TagNumber(12)
+  set recurring($core.bool v) { $_setBool(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasRecurring() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearRecurring() => clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.int get numberOfDays => $_getIZ(12);
+  @$pb.TagNumber(13)
+  set numberOfDays($core.int v) { $_setSignedInt32(12, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasNumberOfDays() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearNumberOfDays() => clearField(13);
+
+  @$pb.TagNumber(14)
+  $core.int get repeatFrequency => $_getIZ(13);
+  @$pb.TagNumber(14)
+  set repeatFrequency($core.int v) { $_setSignedInt32(13, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasRepeatFrequency() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearRepeatFrequency() => clearField(14);
+
+  @$pb.TagNumber(15)
+  $core.int get dailyFrequency => $_getIZ(14);
+  @$pb.TagNumber(15)
+  set dailyFrequency($core.int v) { $_setSignedInt32(14, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasDailyFrequency() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearDailyFrequency() => clearField(15);
+
+  @$pb.TagNumber(16)
+  $core.List<Comorbidity> get comorbidities => $_getList(15);
+
+  @$pb.TagNumber(17)
+  $core.List<NewQuestion> get additionalQuestions => $_getList(16);
+
+  @$pb.TagNumber(18)
+  $core.bool get containsLabTests => $_getBF(17);
+  @$pb.TagNumber(18)
+  set containsLabTests($core.bool v) { $_setBool(17, v); }
+  @$pb.TagNumber(18)
+  $core.bool hasContainsLabTests() => $_has(17);
+  @$pb.TagNumber(18)
+  void clearContainsLabTests() => clearField(18);
+
+  @$pb.TagNumber(19)
+  $core.String get notes => $_getSZ(18);
+  @$pb.TagNumber(19)
+  set notes($core.String v) { $_setString(18, v); }
+  @$pb.TagNumber(19)
+  $core.bool hasNotes() => $_has(18);
+  @$pb.TagNumber(19)
+  void clearNotes() => clearField(19);
+
+  @$pb.TagNumber(20)
+  $core.List<Media> get attachments => $_getList(19);
+
+  @$pb.TagNumber(21)
+  $core.bool get selectOneFollo => $_getBF(20);
+  @$pb.TagNumber(21)
+  set selectOneFollo($core.bool v) { $_setBool(20, v); }
+  @$pb.TagNumber(21)
+  $core.bool hasSelectOneFollo() => $_has(20);
+  @$pb.TagNumber(21)
+  void clearSelectOneFollo() => clearField(21);
+
+  @$pb.TagNumber(22)
+  $core.bool get scheduleAppointment => $_getBF(21);
+  @$pb.TagNumber(22)
+  set scheduleAppointment($core.bool v) { $_setBool(21, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasScheduleAppointment() => $_has(21);
+  @$pb.TagNumber(22)
+  void clearScheduleAppointment() => clearField(22);
+
+  @$pb.TagNumber(23)
+  $fixnum.Int64 get appointmentDate => $_getI64(22);
+  @$pb.TagNumber(23)
+  set appointmentDate($fixnum.Int64 v) { $_setInt64(22, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasAppointmentDate() => $_has(22);
+  @$pb.TagNumber(23)
+  void clearAppointmentDate() => clearField(23);
+
+  @$pb.TagNumber(24)
+  $fixnum.Int64 get secondFolloUpStartTimestamp => $_getI64(23);
+  @$pb.TagNumber(24)
+  set secondFolloUpStartTimestamp($fixnum.Int64 v) { $_setInt64(23, v); }
+  @$pb.TagNumber(24)
+  $core.bool hasSecondFolloUpStartTimestamp() => $_has(23);
+  @$pb.TagNumber(24)
+  void clearSecondFolloUpStartTimestamp() => clearField(24);
+
+  @$pb.TagNumber(25)
+  $core.String get preferredCommunicationLanguage => $_getSZ(24);
+  @$pb.TagNumber(25)
+  set preferredCommunicationLanguage($core.String v) { $_setString(24, v); }
+  @$pb.TagNumber(25)
+  $core.bool hasPreferredCommunicationLanguage() => $_has(24);
+  @$pb.TagNumber(25)
+  void clearPreferredCommunicationLanguage() => clearField(25);
+
+  @$pb.TagNumber(26)
+  $core.String get patientProfileId => $_getSZ(25);
+  @$pb.TagNumber(26)
+  set patientProfileId($core.String v) { $_setString(25, v); }
+  @$pb.TagNumber(26)
+  $core.bool hasPatientProfileId() => $_has(25);
+  @$pb.TagNumber(26)
+  void clearPatientProfileId() => clearField(26);
+}
+
+class UndiagnosisCreateFolloUpResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UndiagnosisCreateFolloUpResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'folloUpCreated')
+    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'folloUpId', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  UndiagnosisCreateFolloUpResponse._() : super();
+  factory UndiagnosisCreateFolloUpResponse({
+    $core.String? status,
+    $core.bool? folloUpCreated,
+    $core.int? folloUpId,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    if (folloUpCreated != null) {
+      _result.folloUpCreated = folloUpCreated;
+    }
+    if (folloUpId != null) {
+      _result.folloUpId = folloUpId;
+    }
+    return _result;
+  }
+  factory UndiagnosisCreateFolloUpResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UndiagnosisCreateFolloUpResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UndiagnosisCreateFolloUpResponse clone() => UndiagnosisCreateFolloUpResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UndiagnosisCreateFolloUpResponse copyWith(void Function(UndiagnosisCreateFolloUpResponse) updates) => super.copyWith((message) => updates(message as UndiagnosisCreateFolloUpResponse)) as UndiagnosisCreateFolloUpResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UndiagnosisCreateFolloUpResponse create() => UndiagnosisCreateFolloUpResponse._();
+  UndiagnosisCreateFolloUpResponse createEmptyInstance() => create();
+  static $pb.PbList<UndiagnosisCreateFolloUpResponse> createRepeated() => $pb.PbList<UndiagnosisCreateFolloUpResponse>();
+  @$core.pragma('dart2js:noInline')
+  static UndiagnosisCreateFolloUpResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UndiagnosisCreateFolloUpResponse>(create);
+  static UndiagnosisCreateFolloUpResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get status => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set status($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get folloUpCreated => $_getBF(1);
+  @$pb.TagNumber(2)
+  set folloUpCreated($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasFolloUpCreated() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFolloUpCreated() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get folloUpId => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set folloUpId($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasFolloUpId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearFolloUpId() => clearField(3);
+}
+
+class PatientList extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PatientList', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userToken')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clinicId')
+    ..hasRequiredFields = false
+  ;
+
+  PatientList._() : super();
+  factory PatientList({
+    $core.String? userId,
+    $core.String? userToken,
+    $core.String? mobileNumber,
+    $core.String? clinicId,
+  }) {
+    final _result = create();
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (userToken != null) {
+      _result.userToken = userToken;
+    }
+    if (mobileNumber != null) {
+      _result.mobileNumber = mobileNumber;
+    }
+    if (clinicId != null) {
+      _result.clinicId = clinicId;
+    }
+    return _result;
+  }
+  factory PatientList.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PatientList.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PatientList clone() => PatientList()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PatientList copyWith(void Function(PatientList) updates) => super.copyWith((message) => updates(message as PatientList)) as PatientList; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static PatientList create() => PatientList._();
+  PatientList createEmptyInstance() => create();
+  static $pb.PbList<PatientList> createRepeated() => $pb.PbList<PatientList>();
+  @$core.pragma('dart2js:noInline')
+  static PatientList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PatientList>(create);
+  static PatientList? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get userToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userToken($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUserToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserToken() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get mobileNumber => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set mobileNumber($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMobileNumber() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMobileNumber() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get clinicId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set clinicId($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasClinicId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearClinicId() => clearField(4);
+}
+
+class PatientListResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PatientListResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..pc<Patient>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientdata', $pb.PbFieldType.PM, subBuilder: Patient.create)
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientExists')
+    ..hasRequiredFields = false
+  ;
+
+  PatientListResponse._() : super();
+  factory PatientListResponse({
+    $core.String? status,
+    $core.Iterable<Patient>? patientdata,
+    $core.bool? patientExists,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    if (patientdata != null) {
+      _result.patientdata.addAll(patientdata);
+    }
+    if (patientExists != null) {
+      _result.patientExists = patientExists;
+    }
+    return _result;
+  }
+  factory PatientListResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PatientListResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PatientListResponse clone() => PatientListResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PatientListResponse copyWith(void Function(PatientListResponse) updates) => super.copyWith((message) => updates(message as PatientListResponse)) as PatientListResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static PatientListResponse create() => PatientListResponse._();
+  PatientListResponse createEmptyInstance() => create();
+  static $pb.PbList<PatientListResponse> createRepeated() => $pb.PbList<PatientListResponse>();
+  @$core.pragma('dart2js:noInline')
+  static PatientListResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PatientListResponse>(create);
+  static PatientListResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get status => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set status($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<Patient> get patientdata => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.bool get patientExists => $_getBF(2);
+  @$pb.TagNumber(3)
+  set patientExists($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPatientExists() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPatientExists() => clearField(3);
+}
+
+class EditPatientProfile extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'EditPatientProfile', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userToken')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientProfileId')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstName')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastName')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender')
+    ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'age', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  EditPatientProfile._() : super();
+  factory EditPatientProfile({
+    $core.String? userId,
+    $core.String? userToken,
+    $core.String? patientProfileId,
+    $core.String? firstName,
+    $core.String? lastName,
+    $core.String? gender,
+    $core.int? age,
+  }) {
+    final _result = create();
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (userToken != null) {
+      _result.userToken = userToken;
+    }
+    if (patientProfileId != null) {
+      _result.patientProfileId = patientProfileId;
+    }
+    if (firstName != null) {
+      _result.firstName = firstName;
+    }
+    if (lastName != null) {
+      _result.lastName = lastName;
+    }
+    if (gender != null) {
+      _result.gender = gender;
+    }
+    if (age != null) {
+      _result.age = age;
+    }
+    return _result;
+  }
+  factory EditPatientProfile.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EditPatientProfile.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EditPatientProfile clone() => EditPatientProfile()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EditPatientProfile copyWith(void Function(EditPatientProfile) updates) => super.copyWith((message) => updates(message as EditPatientProfile)) as EditPatientProfile; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static EditPatientProfile create() => EditPatientProfile._();
+  EditPatientProfile createEmptyInstance() => create();
+  static $pb.PbList<EditPatientProfile> createRepeated() => $pb.PbList<EditPatientProfile>();
+  @$core.pragma('dart2js:noInline')
+  static EditPatientProfile getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EditPatientProfile>(create);
+  static EditPatientProfile? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get userToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userToken($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUserToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserToken() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get patientProfileId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set patientProfileId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPatientProfileId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPatientProfileId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get firstName => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set firstName($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasFirstName() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearFirstName() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get lastName => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set lastName($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasLastName() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLastName() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get gender => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set gender($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasGender() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearGender() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.int get age => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set age($core.int v) { $_setSignedInt32(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasAge() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearAge() => clearField(7);
+}
+
+class EditPatientProfileResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'EditPatientProfileResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'patientUpdated')
+    ..hasRequiredFields = false
+  ;
+
+  EditPatientProfileResponse._() : super();
+  factory EditPatientProfileResponse({
+    $core.String? status,
+    $core.bool? patientUpdated,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    if (patientUpdated != null) {
+      _result.patientUpdated = patientUpdated;
+    }
+    return _result;
+  }
+  factory EditPatientProfileResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EditPatientProfileResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EditPatientProfileResponse clone() => EditPatientProfileResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EditPatientProfileResponse copyWith(void Function(EditPatientProfileResponse) updates) => super.copyWith((message) => updates(message as EditPatientProfileResponse)) as EditPatientProfileResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static EditPatientProfileResponse create() => EditPatientProfileResponse._();
+  EditPatientProfileResponse createEmptyInstance() => create();
+  static $pb.PbList<EditPatientProfileResponse> createRepeated() => $pb.PbList<EditPatientProfileResponse>();
+  @$core.pragma('dart2js:noInline')
+  static EditPatientProfileResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EditPatientProfileResponse>(create);
+  static EditPatientProfileResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get status => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set status($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get patientUpdated => $_getBF(1);
+  @$pb.TagNumber(2)
+  set patientUpdated($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPatientUpdated() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPatientUpdated() => clearField(2);
+}
+
+class CaregiverInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CaregiverInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userToken')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clinicId')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'careTeamId')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'caregiverId')
+    ..hasRequiredFields = false
+  ;
+
+  CaregiverInfo._() : super();
+  factory CaregiverInfo({
+    $core.String? userToken,
+    $core.String? userId,
+    $core.String? clinicId,
+    $core.String? careTeamId,
+    $core.String? caregiverId,
+  }) {
+    final _result = create();
+    if (userToken != null) {
+      _result.userToken = userToken;
+    }
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (clinicId != null) {
+      _result.clinicId = clinicId;
+    }
+    if (careTeamId != null) {
+      _result.careTeamId = careTeamId;
+    }
+    if (caregiverId != null) {
+      _result.caregiverId = caregiverId;
+    }
+    return _result;
+  }
+  factory CaregiverInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CaregiverInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CaregiverInfo clone() => CaregiverInfo()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CaregiverInfo copyWith(void Function(CaregiverInfo) updates) => super.copyWith((message) => updates(message as CaregiverInfo)) as CaregiverInfo; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CaregiverInfo create() => CaregiverInfo._();
+  CaregiverInfo createEmptyInstance() => create();
+  static $pb.PbList<CaregiverInfo> createRepeated() => $pb.PbList<CaregiverInfo>();
+  @$core.pragma('dart2js:noInline')
+  static CaregiverInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CaregiverInfo>(create);
+  static CaregiverInfo? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get userToken => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userToken($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUserToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserToken() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get userId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUserId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get clinicId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set clinicId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasClinicId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearClinicId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get careTeamId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set careTeamId($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCareTeamId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCareTeamId() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get caregiverId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set caregiverId($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasCaregiverId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCaregiverId() => clearField(5);
+}
+
+class CaregiverInfoResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CaregiverInfoResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'dashboard'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'email')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userType')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'role')
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mobileNumber')
+    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstName')
+    ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastName')
+    ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOM<Media>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'profilePicture', subBuilder: Media.create)
+    ..aInt64(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dateOfBirth')
+    ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'licenseNumber')
+    ..aOM<Media>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'medicalCertificate', subBuilder: Media.create)
+    ..aOS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'qualifications')
+    ..a<$core.int>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'experience', $pb.PbFieldType.O3)
+    ..aOM<Media>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'degreeCertificate', subBuilder: Media.create)
+    ..pc<CaregiverSpeciality>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'specialities', $pb.PbFieldType.PM, subBuilder: CaregiverSpeciality.create)
+    ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userStatus')
+    ..aOS(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'emergencyContactNumber')
+    ..aOS(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'appointmentUrl')
+    ..aOS(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'about')
+    ..hasRequiredFields = false
+  ;
+
+  CaregiverInfoResponse._() : super();
+  factory CaregiverInfoResponse({
+    $core.String? status,
+    $core.String? userId,
+    $core.String? email,
+    $core.String? userType,
+    $core.String? role,
+    $core.String? mobileNumber,
+    $core.String? firstName,
+    $core.String? lastName,
+    $core.String? name,
+    Media? profilePicture,
+    $fixnum.Int64? dateOfBirth,
+    $core.String? licenseNumber,
+    Media? medicalCertificate,
+    $core.String? qualifications,
+    $core.int? experience,
+    Media? degreeCertificate,
+    $core.Iterable<CaregiverSpeciality>? specialities,
+    $core.String? userStatus,
+    $core.String? emergencyContactNumber,
+    $core.String? appointmentUrl,
+    $core.String? about,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (email != null) {
+      _result.email = email;
+    }
+    if (userType != null) {
+      _result.userType = userType;
+    }
+    if (role != null) {
+      _result.role = role;
+    }
+    if (mobileNumber != null) {
+      _result.mobileNumber = mobileNumber;
+    }
+    if (firstName != null) {
+      _result.firstName = firstName;
+    }
+    if (lastName != null) {
+      _result.lastName = lastName;
+    }
+    if (name != null) {
+      _result.name = name;
+    }
+    if (profilePicture != null) {
+      _result.profilePicture = profilePicture;
+    }
+    if (dateOfBirth != null) {
+      _result.dateOfBirth = dateOfBirth;
+    }
+    if (licenseNumber != null) {
+      _result.licenseNumber = licenseNumber;
+    }
+    if (medicalCertificate != null) {
+      _result.medicalCertificate = medicalCertificate;
+    }
+    if (qualifications != null) {
+      _result.qualifications = qualifications;
+    }
+    if (experience != null) {
+      _result.experience = experience;
+    }
+    if (degreeCertificate != null) {
+      _result.degreeCertificate = degreeCertificate;
+    }
+    if (specialities != null) {
+      _result.specialities.addAll(specialities);
+    }
+    if (userStatus != null) {
+      _result.userStatus = userStatus;
+    }
+    if (emergencyContactNumber != null) {
+      _result.emergencyContactNumber = emergencyContactNumber;
+    }
+    if (appointmentUrl != null) {
+      _result.appointmentUrl = appointmentUrl;
+    }
+    if (about != null) {
+      _result.about = about;
+    }
+    return _result;
+  }
+  factory CaregiverInfoResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CaregiverInfoResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CaregiverInfoResponse clone() => CaregiverInfoResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CaregiverInfoResponse copyWith(void Function(CaregiverInfoResponse) updates) => super.copyWith((message) => updates(message as CaregiverInfoResponse)) as CaregiverInfoResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CaregiverInfoResponse create() => CaregiverInfoResponse._();
+  CaregiverInfoResponse createEmptyInstance() => create();
+  static $pb.PbList<CaregiverInfoResponse> createRepeated() => $pb.PbList<CaregiverInfoResponse>();
+  @$core.pragma('dart2js:noInline')
+  static CaregiverInfoResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CaregiverInfoResponse>(create);
+  static CaregiverInfoResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get status => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set status($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get userId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set userId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUserId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUserId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get email => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set email($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasEmail() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearEmail() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get userType => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set userType($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasUserType() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearUserType() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get role => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set role($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasRole() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearRole() => clearField(5);
+
+  @$pb.TagNumber(8)
+  $core.String get mobileNumber => $_getSZ(5);
+  @$pb.TagNumber(8)
+  set mobileNumber($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasMobileNumber() => $_has(5);
+  @$pb.TagNumber(8)
+  void clearMobileNumber() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get firstName => $_getSZ(6);
+  @$pb.TagNumber(9)
+  set firstName($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasFirstName() => $_has(6);
+  @$pb.TagNumber(9)
+  void clearFirstName() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get lastName => $_getSZ(7);
+  @$pb.TagNumber(10)
+  set lastName($core.String v) { $_setString(7, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasLastName() => $_has(7);
+  @$pb.TagNumber(10)
+  void clearLastName() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.String get name => $_getSZ(8);
+  @$pb.TagNumber(11)
+  set name($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasName() => $_has(8);
+  @$pb.TagNumber(11)
+  void clearName() => clearField(11);
+
+  @$pb.TagNumber(12)
+  Media get profilePicture => $_getN(9);
+  @$pb.TagNumber(12)
+  set profilePicture(Media v) { setField(12, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasProfilePicture() => $_has(9);
+  @$pb.TagNumber(12)
+  void clearProfilePicture() => clearField(12);
+  @$pb.TagNumber(12)
+  Media ensureProfilePicture() => $_ensure(9);
+
+  @$pb.TagNumber(13)
+  $fixnum.Int64 get dateOfBirth => $_getI64(10);
+  @$pb.TagNumber(13)
+  set dateOfBirth($fixnum.Int64 v) { $_setInt64(10, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasDateOfBirth() => $_has(10);
+  @$pb.TagNumber(13)
+  void clearDateOfBirth() => clearField(13);
+
+  @$pb.TagNumber(14)
+  $core.String get licenseNumber => $_getSZ(11);
+  @$pb.TagNumber(14)
+  set licenseNumber($core.String v) { $_setString(11, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasLicenseNumber() => $_has(11);
+  @$pb.TagNumber(14)
+  void clearLicenseNumber() => clearField(14);
+
+  @$pb.TagNumber(15)
+  Media get medicalCertificate => $_getN(12);
+  @$pb.TagNumber(15)
+  set medicalCertificate(Media v) { setField(15, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasMedicalCertificate() => $_has(12);
+  @$pb.TagNumber(15)
+  void clearMedicalCertificate() => clearField(15);
+  @$pb.TagNumber(15)
+  Media ensureMedicalCertificate() => $_ensure(12);
+
+  @$pb.TagNumber(16)
+  $core.String get qualifications => $_getSZ(13);
+  @$pb.TagNumber(16)
+  set qualifications($core.String v) { $_setString(13, v); }
+  @$pb.TagNumber(16)
+  $core.bool hasQualifications() => $_has(13);
+  @$pb.TagNumber(16)
+  void clearQualifications() => clearField(16);
+
+  @$pb.TagNumber(17)
+  $core.int get experience => $_getIZ(14);
+  @$pb.TagNumber(17)
+  set experience($core.int v) { $_setSignedInt32(14, v); }
+  @$pb.TagNumber(17)
+  $core.bool hasExperience() => $_has(14);
+  @$pb.TagNumber(17)
+  void clearExperience() => clearField(17);
+
+  @$pb.TagNumber(18)
+  Media get degreeCertificate => $_getN(15);
+  @$pb.TagNumber(18)
+  set degreeCertificate(Media v) { setField(18, v); }
+  @$pb.TagNumber(18)
+  $core.bool hasDegreeCertificate() => $_has(15);
+  @$pb.TagNumber(18)
+  void clearDegreeCertificate() => clearField(18);
+  @$pb.TagNumber(18)
+  Media ensureDegreeCertificate() => $_ensure(15);
+
+  @$pb.TagNumber(19)
+  $core.List<CaregiverSpeciality> get specialities => $_getList(16);
+
+  @$pb.TagNumber(20)
+  $core.String get userStatus => $_getSZ(17);
+  @$pb.TagNumber(20)
+  set userStatus($core.String v) { $_setString(17, v); }
+  @$pb.TagNumber(20)
+  $core.bool hasUserStatus() => $_has(17);
+  @$pb.TagNumber(20)
+  void clearUserStatus() => clearField(20);
+
+  @$pb.TagNumber(21)
+  $core.String get emergencyContactNumber => $_getSZ(18);
+  @$pb.TagNumber(21)
+  set emergencyContactNumber($core.String v) { $_setString(18, v); }
+  @$pb.TagNumber(21)
+  $core.bool hasEmergencyContactNumber() => $_has(18);
+  @$pb.TagNumber(21)
+  void clearEmergencyContactNumber() => clearField(21);
+
+  @$pb.TagNumber(22)
+  $core.String get appointmentUrl => $_getSZ(19);
+  @$pb.TagNumber(22)
+  set appointmentUrl($core.String v) { $_setString(19, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasAppointmentUrl() => $_has(19);
+  @$pb.TagNumber(22)
+  void clearAppointmentUrl() => clearField(22);
+
+  @$pb.TagNumber(23)
+  $core.String get about => $_getSZ(20);
+  @$pb.TagNumber(23)
+  set about($core.String v) { $_setString(20, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasAbout() => $_has(20);
+  @$pb.TagNumber(23)
+  void clearAbout() => clearField(23);
 }
 

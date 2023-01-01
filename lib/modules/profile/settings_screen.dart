@@ -35,6 +35,9 @@ class _SettingScreenState extends State<SettingScreen> {
   GlobalData globalData = locator<GlobalData>();
   HttpService httpService = locator<HttpService>();
   String mobileNumber;
+  List<Patient> _patientList = [];
+  final ScrollController _controller = ScrollController();
+
   List<String> listItems = [
     "My Profile",
     "Reset PIN",
@@ -51,7 +54,22 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   void initState() {
     mobileNumber = Preference.shared.getMobileNumber().toString();
+    patientListApiCall();
     super.initState();
+  }
+
+  void _animateToIndex(int index) {
+    _controller.animateTo(
+      index * screenWidth(context) * 0.45 - 100,
+      duration: Duration(microseconds: 1),
+      curve: Curves.easeIn,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   prefillPatientApiCall() async {
@@ -61,6 +79,7 @@ class _SettingScreenState extends State<SettingScreen> {
       userToken: globalData.userToken,
       clinicId: clinicId,
       mobileNumber: "+91" + mobileNumber,
+      patientProfileId: Preference.shared.getSelectedPatientProfileId(),
     );
     LoadingIndicator.dismiss();
 
@@ -74,10 +93,13 @@ class _SettingScreenState extends State<SettingScreen> {
         dict["mobileNumber"] = mobileNumber;
         dict["isForEdit"] = true;
         dict["patient"] = fetchPatientResponse.patientdata;
-        NavigationUtilities.pushRoute(
-          PatientSignupScreen.route,
-          args: dict,
-        );
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    PatientSignupScreen(mobileNumber: mobileNumber, isForEdit: true, patient: fetchPatientResponse.patientdata))).then((value) async {
+          await patientListApiCall();
+        });
       } else {
         if (fetchPatientResponse.status == "auth_expired") {
           await prefillPatientApiCall();
@@ -109,6 +131,69 @@ class _SettingScreenState extends State<SettingScreen> {
     }
   }
 
+  patientListApiCall() async {
+    http.Response response = await httpService.patientList(
+      userId: globalData.userId,
+      userToken: globalData.userToken,
+      clinicId: clinicId,
+      mobileNumber: "+91" + mobileNumber,
+    );
+
+    if (response.statusCode == 200) {
+      _patientList = [];
+      PatientListResponse patientListResponse = PatientListResponse();
+      patientListResponse.mergeFromBuffer(response.bodyBytes);
+
+      if (patientListResponse.status == "success") {
+        log(patientListResponse.patientdata.length.toString());
+        for (var i = 0; i < patientListResponse.patientdata.length; i++) {
+          _patientList.add(patientListResponse.patientdata[i]);
+        }
+        print(Preference.shared.getSelectedPatientProfileId());
+        if (Preference.shared.getSelectedPatientProfileId() == null || Preference.shared.getSelectedPatientProfileId() == "") {
+          await Preference.shared.setSelectedPatientProfileId(patientListResponse.patientdata[0].patientProfileId ?? "");
+        } else {
+          for (var i = 0; i < _patientList.length; i++) {
+            if (_patientList[i].patientProfileId == Preference.shared.getSelectedPatientProfileId()) {
+              await Preference.shared.setSelectedPatientProfileId(_patientList[i].patientProfileId ?? "");
+              _animateToIndex(i);
+            }
+          }
+        }
+        setState(() {});
+        log(_patientList.length.toString());
+      } else {
+        if (patientListResponse.status == "auth_expired") {
+          await patientListApiCall();
+          return;
+        } else {
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.ERROR,
+            animType: AnimType.TOPSLIDE,
+            dismissOnTouchOutside: false,
+            headerAnimationLoop: false,
+            title: 'ERROR',
+            desc: ErrorHandler().getErrorMessage(patientListResponse.status),
+            btnOkOnPress: () {},
+          )..show();
+        }
+      }
+    } else {
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.ERROR,
+        animType: AnimType.TOPSLIDE,
+        dismissOnTouchOutside: false,
+        headerAnimationLoop: false,
+        title: 'ERROR',
+        desc: "Something went wrong!",
+        btnOkOnPress: () {},
+      )..show();
+      return;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +203,7 @@ class _SettingScreenState extends State<SettingScreen> {
           Stack(
             children: [
               Container(
-                height: screenHeight(context) * 0.11,
+                height: screenHeight(context) * 0.205,
                 decoration: BoxDecoration(
                   color: ColorUtils.primaryColor,
                   borderRadius: BorderRadius.only(
@@ -129,27 +214,169 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
               Image.asset(
                 ImageConstants.backgroundMask1,
-                height: screenHeight(context) * 0.11,
+                height: screenHeight(context) * 0.20,
                 width: screenWidth(context),
                 fit: BoxFit.cover,
               ),
               Container(
-                padding: EdgeInsets.only(left: getSize(26), right: getSize(26), bottom: getSize(16)),
-                height: screenHeight(context) * 0.11,
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                height: screenHeight(context) * 0.20,
+                child: Column(
                   children: [
-                    Text(
-                      'My Account',
-                      textAlign: TextAlign.left,
-                      style: TextUtils.semiBoldPoppinsStyle.copyWith(
-                        color: ColorUtils.titleTextColorWhite,
-                        fontSize: getFontSize(15.0),
+                    SizedBox(
+                      height: getSize(52),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: getSize(26), right: getSize(26), bottom: getSize(16)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            'My Account',
+                            textAlign: TextAlign.left,
+                            style: TextUtils.semiBoldPoppinsStyle.copyWith(
+                              color: ColorUtils.titleTextColorWhite,
+                              fontSize: getFontSize(15.0),
+                            ),
+                          ),
+                          Spacer(),
+                          EmergencyButton(),
+                        ],
                       ),
                     ),
-                    Spacer(),
-                    EmergencyButton(),
+                    Container(
+                      padding: EdgeInsets.only(left: getSize(8)),
+                      height: screenHeight(context) * 0.07,
+                      child: ListView.builder(
+                          itemCount: _patientList.length,
+                          scrollDirection: Axis.horizontal,
+                          controller: _controller,
+                          physics: ClampingScrollPhysics(),
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                              padding: EdgeInsets.only(right: getSize(8)),
+                              child: InkWell(
+                                onTap: () {
+                                  Preference.shared.setSelectedPatientProfileId(_patientList[index].patientProfileId ?? "");
+                                  _animateToIndex(index);
+                                  // _setDateToDatePicker();
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: getSize(16),
+                                  width: screenWidth(context) * 0.45,
+                                  decoration: BoxDecoration(
+                                      color: _patientList[index].patientProfileId == Preference.shared.getSelectedPatientProfileId()
+                                          ? ColorUtils.secondaryColor
+                                          : Colors.white,
+                                      borderRadius: BorderRadius.all(Radius.circular(getSize(26))),
+                                      border: Border.all(color: ColorUtils.secondaryColor, width: getSize(2))),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: getSize(8), top: getSize(7), bottom: getSize(6), right: getSize(4)),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        _patientList[index].profilePicture.url.isNotEmpty
+                                            ? Center(
+                                                child: ClipRRect(
+                                                  borderRadius: BorderRadius.circular(getSize(100)),
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext context) {
+                                                          return SimpleDialog(
+                                                            contentPadding: EdgeInsets.zero,
+                                                            backgroundColor: Colors.transparent,
+                                                            children: [
+                                                              InkWell(
+                                                                onTap: () {
+                                                                  Navigator.of(context).pop();
+                                                                },
+                                                                child: InteractiveViewer(
+                                                                  child: Image.network(
+                                                                    _patientList[index].profilePicture.url,
+                                                                  ),
+                                                                ),
+                                                              )
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                    child: Image.network(
+                                                      _patientList[index].profilePicture.url.toString(),
+                                                      width: getSize(32),
+                                                      height: getSize(32),
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                            : Center(
+                                                child: CircleAvatar(
+                                                  radius: screenWidth(context) * 0.04,
+                                                  // backgroundColor: ColorUtils.secondaryColor,
+                                                  child: CircleAvatar(
+                                                    backgroundColor: Colors.white,
+                                                    child: Image.asset(
+                                                      _patientList[index].gender.toString().toLowerCase() == "male"
+                                                          ? ImageConstants.maleProfileIcon
+                                                          : ImageConstants.femaleProfileIcon ?? ImageConstants.maleProfileIcon,
+                                                      color: ColorUtils.primaryColor.withOpacity(0.7),
+                                                    ),
+                                                    radius: screenWidth(context) * 0.04,
+                                                  ),
+                                                ),
+                                              ),
+                                        SizedBox(
+                                          width: getSize(8),
+                                        ),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: screenWidth(context) * 0.28,
+                                              child: Text(
+                                                _patientList[index].firstName + " " + _patientList[index].lastName,
+                                                style: TextUtils.mediumPoppinsStyle.copyWith(
+                                                  color: _patientList[index].patientProfileId == Preference.shared.getSelectedPatientProfileId()
+                                                      ? Colors.white
+                                                      : ColorUtils.secondaryColor,
+                                                  fontSize: getFontSize(12.0),
+                                                  fontWeight: FontWeight.w700,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                                maxLines: 1,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: getSize(2),
+                                            ),
+                                            Center(
+                                              child: Text(
+                                                "Age : ${_patientList[index].age}",
+                                                style: TextUtils.semiBoldPoppinsStyle.copyWith(
+                                                  color: _patientList[index].patientProfileId == Preference.shared.getSelectedPatientProfileId()
+                                                      ? Colors.white
+                                                      : ColorUtils.secondaryColor,
+                                                  fontSize: getFontSize(10.0),
+                                                  fontWeight: FontWeight.w700,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                                maxLines: 1,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                    ),
                   ],
                 ),
               ),

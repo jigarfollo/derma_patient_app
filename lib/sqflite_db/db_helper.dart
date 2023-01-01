@@ -90,8 +90,8 @@ class DbConversationProvider {
 
   Future _createDb(Database db) async {
     await db.execute('DROP TABLE If EXISTS $tableConversations');
-    await db.execute(
-        'CREATE TABLE $tableConversations($columnId INTEGER PRIMARY KEY, $columnFolloId TEXT, $columnConversations TEXT, $columnUpdatedDate INTEGER)');
+    await db
+        .execute('CREATE TABLE $tableConversations($columnId INTEGER PRIMARY KEY, $columnFolloId TEXT, $columnConversations TEXT, $columnUpdatedDate INTEGER)');
     await db.execute('CREATE INDEX ConversationsUpdated ON $tableConversations ($columnUpdatedDate)');
     _triggerUpdate();
   }
@@ -121,8 +121,7 @@ class DbConversationProvider {
     _triggerUpdate();
   }
 
-  var conversationsTransformer =
-      StreamTransformer<List<Map<String, Object>>, List<DbFolloConversation>>.fromHandlers(handleData: (snapshotList, sink) {
+  var conversationsTransformer = StreamTransformer<List<Map<String, Object>>, List<DbFolloConversation>>.fromHandlers(handleData: (snapshotList, sink) {
     sink.add(DbConversations(snapshotList));
   });
 
@@ -366,8 +365,7 @@ class DbConversationProvider {
     return null;
   }
 
-  Future<IncomingPatientappMessageResponse> onMessageResponseApiCall(
-      String conversationId, PatientappChatMessage message, ResponseOptions selectedResponse,
+  Future<IncomingPatientappMessageResponse> onMessageResponseApiCall(String conversationId, PatientappChatMessage message, ResponseOptions selectedResponse,
       {List<dynamic> imageList = null, BuildContext context}) async {
     GlobalData globalData = locator<GlobalData>();
     HttpService httpService = locator<HttpService>();
@@ -404,8 +402,8 @@ class DbConversationProvider {
         DbFolloConversation currentConvo = await convoProvider.getConversation(conversationId);
         List<String> messages = currentConvo.conversations.v.split(Utils.listSaparator);
         PatientappChatMessage lastMessage = PatientappChatMessage.fromJson(messages.last);
-        lastMessage.responseOptions[lastMessage.responseOptions.indexWhere((element) => element.responseText == selectedResponse.responseText)]
-            .isSelected = true;
+        lastMessage.responseOptions[lastMessage.responseOptions.indexWhere((element) => element.responseText == selectedResponse.responseText)].isSelected =
+            true;
         if (mediaList.isNotEmpty) {
           lastMessage.mediaPresent = true;
           lastMessage.media.clear();

@@ -64,7 +64,9 @@ dependencies:
   flutter_cache_manager: ^3.3.0
   geolocator: ^8.0.1
   lottie: ^1.4.0
-
+  flutter_switch: ^0.3.2
+  qr_code_scanner: ^1.0.1
+  universal_html: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

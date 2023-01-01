@@ -33,6 +33,25 @@ class ColorUtils {
   static Color primaryBackgroundTextColor = getColorFromHex("#d59240");
   static Color secondaryColor = getColorFromHex("#21201e");
 
+  static Color headerColor = getColorFromHex("#262626");
+  static Color greyColor = getColorFromHex("#98A2B5");
+  static Color darkTextColor = getColorFromHex("#222222");
+  static Color borderColor = Color(0xffe0e3e9);
+  static Color bgColor = Color(0xffecedef);
+  static Color shadowColor = getColorFromHex("#00000029");
+  static Color greyTextColor = getColorFromHex("#898A8F");
+
+  static Color greenTextColor = getColorFromHex("#637784");
+  static Color titleColor = getColorFromHex("#141414");
+  static Color textFieldBorderColor = getColorFromHex("#DEDEDF");
+  static Color blueTextColor = getColorFromHex("#257DB8");
+  static Color greyButtonColor = getColorFromHex("#BEC6D1");
+  static Color yellowTextColor = Color(0XFFFFDA69);
+  static Color darkerYellowTextColor = Color(0XFFEBB103);
+  static Color titleTextColor = getColorFromHex("#353535");
+  static Color incomingMessageTextColor = getColorFromHex("#F1F1F1");
+  static Color pinTextColor = Color.fromRGBO(51, 51, 51, 0.87);
+  static Color textColor = Color(0xff2F2E41);
   static Color getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll('#', '');
     if (hexColor.length == 6) {

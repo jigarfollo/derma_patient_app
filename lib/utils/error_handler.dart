@@ -126,6 +126,8 @@ class ErrorHandler {
         return 'User doesn\'t exist';
       case 'invalid_pin':
         return 'Invalid PIN';
+      case 'invalid_patient_info':
+        return 'Invalid Patient Info';
       default:
         return 'Something went wrong';
     }

@@ -372,6 +372,7 @@ class _PatientSignupScreenState extends State<PatientSignupScreen> {
         gender: _genderValue.toString().toLowerCase(),
         role: "patient",
         clinicId: clinicId,
+        patientProfileId: Preference.shared.getSelectedPatientProfileId(),
       );
       print(Int64.parseInt(birthDate.millisecondsSinceEpoch.toString()));
 

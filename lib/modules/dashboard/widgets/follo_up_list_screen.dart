@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:follo_patient_app/modules/dashboard/doctor_profile_screen.dart';
 import 'package:follo_patient_app/modules/dashboard/widgets/patient_chat_screen.dart';
 import 'package:follo_patient_app/protobuf_packets/follo.pb.dart';
+import 'package:follo_patient_app/shared_preference/preference.dart';
 import 'package:follo_patient_app/utils/color_utils.dart';
 import 'package:follo_patient_app/utils/common/emergency_button.dart';
 import 'package:follo_patient_app/utils/common/rounded_corner_buttons.dart';
@@ -120,7 +121,10 @@ class _FolloUpListScreenState extends State<FolloUpListScreen> with WidgetsBindi
     folloUpListObj.caregiverId = widget.caregiverInfo != null ? widget.caregiverInfo.userId : '';
     folloUpListObj.startTimestamp = Int64.parseInt(rangeStartDate.millisecondsSinceEpoch.toString());
     folloUpListObj.endTimestamp = Int64.parseInt(rangeEndDate.millisecondsSinceEpoch.toString());
-    folloUpListObj.filterByTimestamp = false;
+    folloUpListObj.filterByTimestamp = true;
+    folloUpListObj.filterByPatientProfileId =
+        Preference.shared.getSelectedPatientProfileId() == null || Preference.shared.getSelectedPatientProfileId() == "" ? false : true ?? false;
+    folloUpListObj.patientProfileId = Preference.shared.getSelectedPatientProfileId() ?? "";
 
     log(folloUpListObj.toString());
     http.Response response = await httpService.folloUpList(folloUpListObject: folloUpListObj);
@@ -178,9 +182,9 @@ class _FolloUpListScreenState extends State<FolloUpListScreen> with WidgetsBindi
                 children: [
                   Container(
                     alignment: Alignment.topCenter,
-                    height: screenHeight(context) * 0.18,
+                    height: screenHeight(context) * 0.19,
                     child: Container(
-                      height: screenHeight(context) * 0.15,
+                      height: screenHeight(context) * 0.16,
                       decoration: BoxDecoration(
                         color: ColorUtils.primaryColor,
                         borderRadius: BorderRadius.only(
@@ -192,7 +196,7 @@ class _FolloUpListScreenState extends State<FolloUpListScreen> with WidgetsBindi
                   ),
                   Image.asset(
                     ImageConstants.backgroundMask1,
-                    height: screenHeight(context) * 0.15,
+                    height: screenHeight(context) * 0.16,
                     width: screenWidth(context),
                     fit: BoxFit.cover,
                   ),
